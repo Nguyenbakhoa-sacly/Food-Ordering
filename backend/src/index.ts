@@ -3,6 +3,7 @@
 
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import myUserRoute from "./routers/MyUserRoutes"
 
 import "dotenv/config";
 import mongoose from 'mongoose';
@@ -11,10 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-app.get("/test", (req: Request, res: Response) => {
-  res.json({ message: "Hello!" });
-});
+app.use("/api/my/user", myUserRoute)
 
 
 mongoose
